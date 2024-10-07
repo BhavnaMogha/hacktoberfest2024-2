@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        label,
+        input,
+        button {
+            border: 0;
+            margin-bottom: 3px;
+            display: block;
+            width: 100%;
+        }
+
+        .common_box_body {
+            padding: 15px;
+            border: 12px solid #28BAA2;
+            border-color: #28BAA2;
+            border-radius: 15px;
+            margin-top: 10px;
+            background: #d4edda;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="common_box_body test">
+        <h2> User Registration</h2>
+        <form action="#" name="registration" id="registration">
+
+            <label for="Name">Name</label>
+            <input type="text" name="array[]" id="name" placeholder="Meenakshi"><br>
+
+            <label for="Password">Password</label>
+            <input type="text" name="array[]" id="pass" placeholder="xxxxxx"><br>
+
+            Select Gender: <br>
+            <input type="checkbox" id="gender" name="Male" value="Male">
+            <label for="g1">Male<label><br>
+            <input type="checkbox" id="gender" name="Female" value="Female">
+            <label for="g2"> Female</label><br>
+            <input type="checkbox" id="gender" name="others" value="others">
+            <label for="g3"> Others</label><br>
+            <button type="button" id="submit" name="button">
+                    Submit
+            </button>
+        </form>
+        <br>
+    </div>
+
+    <script src="jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function () {
+                name = $("#name").val();
+                if(name==""){alert("Username can't be blank");};
+                    
+                pass = $("#pass").val();
+                if(pass.length<6){alert("Password must have 6 characters");};
+                const gender = [];
+                $("input[type=checkbox]:checked").each(function () {
+                    gender.push($(this).val());
+                    
+                    
+                });
+                if(gender==false){alert("Gender must be selected");};
+                function user(name, pass,gender) {
+                    this.name = name;
+                    this.pass = pass;
+                    this.gender = gender;
+                }
+                var u1 = new user(name, pass,gender);
+                console.log(u1);
+                alert("Name : " + name +"\nPassword :"+pass+"\nGender :"+gender);
+            });
+            
+        });
+        
+        
+    </script>
+    <script src="jquery-3.6.1.min.js"></script>
+</body>
+
+</html>
